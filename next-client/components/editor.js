@@ -32,6 +32,7 @@ export default function Editor () {
             renderHTML={(text) => mdParser.render(text)}
             onChange={handleEditorChange}
             onImageUpload={handleImageUpload}
+            config={{view: {html: false}}}
         />
     )
 }

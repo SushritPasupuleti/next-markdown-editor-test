@@ -28,7 +28,7 @@ const handleImageUpload = (file) => {
 export default function Editor () {
     return (
         <MdEditor
-            style={{ height: "500px" }}
+            style={{ height: "500px", width: '80%' }}
             renderHTML={(text) => mdParser.render(text)}
             onChange={handleEditorChange}
             onImageUpload={handleImageUpload}

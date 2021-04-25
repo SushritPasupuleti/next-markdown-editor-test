@@ -12,12 +12,26 @@ function handleEditorChange({ html, text }) {
     console.log('handleEditorChange', html, text)
 }
 
-export default function () {
+const handleImageUpload = (file) => {
+    console.log("File:", file)
+
+    return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (data) => {
+            //push to express-s3
+          resolve("someurl.com");
+        };
+        reader.readAsDataURL(file);
+      }).then(console.log("done"));
+   };
+
+export default function Editor () {
     return (
         <MdEditor
             style={{ height: "500px" }}
             renderHTML={(text) => mdParser.render(text)}
             onChange={handleEditorChange}
+            onImageUpload={handleImageUpload}
         />
     )
 }
